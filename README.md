@@ -118,6 +118,32 @@ cd easyQMMM
 
 ---
 
+## Example system
+
+An example `system.prmtop` / `system.inpcrd` pair is included in this
+repository so you can run easyQMMM out of the box without first building your
+own topology. This example reproduces the **barrierless nucleophilic attack of
+a reactive carbocation on a DNA base**, exactly as characterized by hybrid
+QM/MM dynamics in our published work on photoinduced DNA interstrand
+cross-linking:
+
+> Abdelgawwad, A. M. A.; Monari, A.; Tuñón, I.; Francés-Monerris, A. *Spatial
+> and Temporal Resolution of the Oxygen-Independent Photoinduced DNA
+> Interstrand Cross-Linking by a Nitroimidazole Derivative.* **J. Chem. Inf.
+> Model. 2022**, *62*, 3239–3252.
+> [DOI: 10.1021/acs.jcim.2c00460](https://doi.org/10.1021/acs.jcim.2c00460)
+
+In that study, the QM/MM simulations showed that the carbocation intermediate
+attacks the most nucleophilic DNA positions — the N7 and O6 sites of guanine,
+the N3 and N7 sites of adenine, the N4 site of cytosine, and the O2 site of
+thymine — through essentially barrierless reaction pathways on the picosecond
+time scale. The bundled example system is set up so that running easyQMMM
+on it reproduces this behavior directly, giving you a ready-made,
+literature-validated test case to confirm your installation is working
+correctly before moving on to your own systems.
+
+---
+
 ## Usage
 
 ### 1. Prepare your system
@@ -219,11 +245,12 @@ from that stage/checkpoint, exactly like resuming a normal AMBER restart.
 
 If you use this workflow, please cite:
 
+- Abdelgawwad, A. M. A.; Monari, A.; Tuñón, I.; Francés-Monerris, A. Spatial
+  and Temporal Resolution of the Oxygen-Independent Photoinduced DNA
+  Interstrand Cross-Linking by a Nitroimidazole Derivative. *J. Chem. Inf.
+  Model.* **2022**, 62, 3239–3252 (source of the example system and the
+  barrierless carbocation/nucleobase reactivity it reproduces).
 - Walker, R. C.; Crowley, M. F.; Case, D. A. *J. Comput. Chem.* **2008**, 29,
   1019–1031 (AMBER additive QM/MM scheme).
 - OpenMM: Eastman, P. et al. *PLOS Comput. Biol.* **2017**, 13, e1005659.
 - Psi4 and/or ORCA, as appropriate to the backend used.
-
-## License
-
-Add your preferred license here (e.g. MIT, GPL-3.0).
