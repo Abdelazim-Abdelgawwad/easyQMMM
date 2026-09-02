@@ -17,15 +17,13 @@ systems), and easyQMMM runs the QM/MM dynamics on top of them.
 ## Features
 
 - **Two QM backends, one interface**
-  - `psi4` — in-process, via the Psi4 Python module (ab initio / DFT).
+  - `psi4` — in-process, via the Psi4 Python module.
   - `orca` — out-of-process, file-based (`inpfile.xyz` / `ptchrg.xyz` / `orca.inp` /
     `orca.engrad`), driven exactly the way `sander` drives ORCA in AmberTools QM/MM.
 - **Two embedding schemes**
   - `mechanical` — QM sees no MM charges; QM–MM electrostatics come from the QM
-    region's own fixed force-field (e.g. RESP) charges (like `qmmm_int = 1`).
+    region.
   - `electrostatic` — QM is polarized directly by the surrounding MM point charges
-    (like `qmmm_int = 5` / Gaussian ONIOM electronic embedding), with optional M1
-    charge deletion at the boundary and a distance cutoff for included MM charges.
 - **Genuine link atoms** at every QM/MM boundary bond (not a frozen boundary bond),
   with per-bond, tunable scale factors (`r(QM–link) / r(QM–MM)`).
 - **Unbiased QM/MM MD** — standard MIN → NVT → NPT staged dynamics.
@@ -112,7 +110,7 @@ python -c "import psi4; print(psi4.__version__)"        # if using Psi4
 Clone this repository:
 
 ```bash
-git clone https://github.com/<your-username>/easyQMMM.git
+git clone https://github.com/Abdelazim-Abdelgawwad/easyQMMM.git
 cd easyQMMM
 ```
 
@@ -191,20 +189,6 @@ Set `UMBRELLA_SAMPLING = True` and configure:
 - `UMBRELLA_R1..R4`, `UMBRELLA_RK2`, `UMBRELLA_RK3` — same meaning as AMBER's
   `&rst` block (`r1/r2/r3/r4` in Å, `rk2/rk3` in kcal/mol/Å²).
 
-One run = one umbrella window. To scan a series of windows the way you would
-with a bash loop over sander `&rst` jobs, either edit `UMBRELLA_R2`/`UMBRELLA_R3`
-between runs, or override them per submission with an environment variable:
-
-```bash
-for i in $(seq 2.0 0.1 3.0); do
-    UMBRELLA_TARGET=$i python easyqmmm.py
-done
-```
-
-Each window writes its own CV log (`umbrella_cv_win_<target>.dat`, columns:
-step, time (ps), coordinate value in Å) ready for WHAM/MBAR analysis, plus its
-own restart files.
-
 ### 5. Resuming a run
 
 Point `INPCRD_FILE` at any written `restart_<label>_<stage>.rst7` file to resume
@@ -250,7 +234,6 @@ If you use this workflow, please cite:
   Interstrand Cross-Linking by a Nitroimidazole Derivative. *J. Chem. Inf.
   Model.* **2022**, 62, 3239–3252 (source of the example system and the
   barrierless carbocation/nucleobase reactivity it reproduces).
-- Walker, R. C.; Crowley, M. F.; Case, D. A. *J. Comput. Chem.* **2008**, 29,
-  1019–1031 (AMBER additive QM/MM scheme).
-- OpenMM: Eastman, P. et al. *PLOS Comput. Biol.* **2017**, 13, e1005659.
+- Walker, R.C., Crowley, M.F. and Case, D.A. (2008), The implementation of a fast and accurate QM/MM potential method in Amber. J. Comput. Chem., 29: 1019-1031. (AMBER additive QM/MM scheme).
+- Eastman P, Swails J, Chodera JD, McGibbon RT, Zhao Y, et al. (2017) OpenMM 7: Rapid development of high performance algorithms for molecular dynamics. PLOS Computational Biology 13(7): e1005659.
 - Psi4 and/or ORCA, as appropriate to the backend used.
