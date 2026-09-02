@@ -173,7 +173,7 @@ Open the script and edit the **USER CONFIGURATION** section at the top:
 Leave `UMBRELLA_SAMPLING = False` and run:
 
 ```bash
-python easyqmmm.py
+python easyQMMM.py
 ```
 
 This runs the staged MIN → NVT → NPT pipeline with plain QM/MM dynamics and
