@@ -85,12 +85,12 @@ It's strongly recommended to use a dedicated conda environment.
 conda create -n qmmm python=3.10 -y
 conda activate qmmm
 
-# 2. OpenMM + NumPy
+# 2. Install OpenMM and NumPy
 conda install -c conda-forge openmm numpy -y
-# (equivalently: pip install openmm numpy)
 
-# 3a. Psi4 (only if you plan to use QM_BACKEND = "psi4")
-conda install -c psi4/label/dev -c conda-forge psi4 -y
+# 3. Psi4 backend (optional)
+# Install only if QM_BACKEND = "psi4"
+conda install -c conda-forge psi4 -y
 
 # 3b. ORCA (only if you plan to use QM_BACKEND = "orca")
 #   ORCA is not distributed via pip/conda. Download it from the official
