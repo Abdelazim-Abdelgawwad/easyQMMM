@@ -237,3 +237,6 @@ If you use this workflow, please cite:
 - Walker, R.C., Crowley, M.F. and Case, D.A. (2008), The implementation of a fast and accurate QM/MM potential method in Amber. J. Comput. Chem., 29: 1019-1031. (AMBER additive QM/MM scheme).
 - Eastman P, Swails J, Chodera JD, McGibbon RT, Zhao Y, et al. (2017) OpenMM 7: Rapid development of high performance algorithms for molecular dynamics. PLOS Computational Biology 13(7): e1005659.
 - Psi4 and/or ORCA, as appropriate to the backend used.
+
+## Contributors
+- Claude (Anthropic)
