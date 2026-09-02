@@ -8,7 +8,7 @@ QM/MM scheme used by `sander`/`pmemd` in AmberTools (Walker, Crowley & Case,
 **umbrella-sampling (biased) QM/MM dynamics** along a reaction coordinate — all
 from a single configuration section, no separate QM/MM interface software needed.
 
-easyQMMM is designed as a companion to [easyPARM](https://github.com/<your-username>/easyPARM):
+easyQMMM is designed as a companion to [easyPARM](https://github.com/Abdelazim-Abdelgawwad/easyPARM):
 easyPARM builds the force field parameters (including for metal-containing
 systems), and easyQMMM runs the QM/MM dynamics on top of them.
 
